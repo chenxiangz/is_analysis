@@ -37,10 +37,10 @@ rectangle  {
 
 skinparam handwritten true
 skinparam usecase {
-	BackgroundColor YellowGreen
-	BorderColor DarkSlateGray
+	BackgroundColor red
+	BorderColor white
 	ArrowColor Olive
-	ActorBorderColor black
+	ActorBorderColor white
 	ActorFontName Courier
 
 }
