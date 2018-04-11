@@ -1,0 +1,6 @@
+@startuml
+	object 读者 {
+	 	username = "cxz"
+		password = "123"
+	}
+@enduml

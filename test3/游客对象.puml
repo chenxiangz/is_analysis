@@ -1,0 +1,6 @@
+@startuml
+ object 游客{
+    查询图书信息
+    注册账号
+ }
+@enduml
