@@ -1,0 +1,46 @@
+@startuml
+skinparam backgroundColor #EEEBBB
+
+skinparam sequence {
+	ArrowColor DeepSkyBlue
+	LifeLineBackgroundColor #A9DCCC
+	
+	ParticipantBorderColor DeepSkyBlue
+	ParticipantBackgroundColor DodgerBlue
+	ParticipantFontName Impact
+	ParticipantFontSize 20
+
+}
+
+hide footbox
+title 借出图书用例
+actor 图书管理员
+boundary 账号信息判断
+control 业务控制
+database 操作信息
+
+
+autonumber
+group 读者账号登录
+activate 账号信息判断
+	图书管理员 -> 账号信息判断 :  输入读者账号信息
+	activate 业务控制
+		账号信息判断 -> 业务控制 : 获取账号信息
+deactivate 账号信息判断
+		activate 操作信息
+			业务控制 -> 操作信息 : 比对账号密码合法性
+			操作信息 --> 业务控制 : 账号信息合法
+end
+group 借出图书流程
+			图书管理员 -> 业务控制 : 输入图书信息
+			业务控制 -> 操作信息 : 增加借阅信息
+			业务控制 -> 操作信息 : 修改图书库存
+			操作信息 -> 业务控制 : 返回操作信息
+		deactivate 操作信息
+	业务控制 -> 图书管理员 : 返回业务控制结果
+	deactivate 业务控制
+	
+
+end
+
+@enduml

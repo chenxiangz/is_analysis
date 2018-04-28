@@ -1,0 +1,48 @@
+@startuml
+skinparam backgroundColor #EEEBDC
+
+skinparam sequence {
+	ArrowColor DeepSkyBlue
+	ActorBorderColor DeepSkyBlue
+	LifeLineBorderColor blue
+	LifeLineBackgroundColor #A9DCDF
+	
+	ParticipantBorderColor DeepSkyBlue
+	ParticipantBackgroundColor DodgerBlue
+	ParticipantFontName Impact
+	ParticipantFontSize 17
+	ParticipantFontColor #A9DCDF
+}
+
+hide footbox
+title 图书归还 用例
+actor 图书管理员 
+boundary 账号判断
+control 业务控制
+database 操作信息
+
+
+autonumber
+group 读者账号合法性验证
+activate 账号判断
+	图书管理员 -> 账号判断 :  输入读者账号信息
+	activate 业务控制
+		账号判断 -> 业务控制 : 获取账号信息
+deactivate 账号判断
+		activate 操作信息
+			业务控制 -> 操作信息 : 比对账号密码合法性
+			操作信息 --> 业务控制 : 账号合法
+end
+group 归还图书
+			图书管理员 -> 业务控制 : 输入归还图书的信息
+			业务控制 -> 操作信息 : 修改保存图书借阅信息
+			业务控制 -> 操作信息 : 修改图书库存
+			操作信息 -> 业务控制 : 返回操作结果
+		deactivate 操作信息
+	业务控制 -> 图书管理员 : 返回还书是否成功
+	deactivate 业务控制
+	
+
+end
+
+@enduml

@@ -1,0 +1,49 @@
+@startuml
+skinparam backgroundColor #EEEBDC
+
+skinparam sequence {
+	ArrowColor DeepSkyBlue
+	ActorBorderColor DeepSkyBlue
+	LifeLineBorderColor blue
+	
+	ParticipantBorderColor DeepSkyBlue
+	ParticipantBackgroundColor DodgerBlue
+	ParticipantFontName Impact
+	ParticipantFontSize 20
+}
+
+hide footbox
+title 查询借阅信息 用例
+actor 读者 
+boundary 权限判断
+control 业务控制
+database 操作信息
+entity 借书记录
+
+autonumber
+group 账号合法性验证
+activate 权限判断
+	读者 -> 权限判断 :  输入账号
+	activate 业务控制
+		权限判断 -> 业务控制 : 获取账号
+deactivate 权限判断
+		activate 操作信息
+			业务控制 -> 操作信息 : 比对账号密码合法性
+			操作信息 --> 业务控制 : 账号合法，成功登录
+
+end
+group 图书借阅记录查询
+    读者->业务控制: 输入借阅图书信息
+	业务控制 -> 操作信息 : 查询借阅表
+	操作信息 -> 业务控制 : 返回查询结果
+	deactivate 操作信息
+	activate 借书记录
+		业务控制 -> 借书记录 : 生成借书记录列表
+	deactivate 业务控制
+		借书记录 -> 读者 : 返回图书查询结果
+	deactivate 借书记录
+	
+
+end
+
+@enduml

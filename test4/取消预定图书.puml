@@ -1,0 +1,45 @@
+@startuml
+skinparam backgroundColor #EEEBDC
+
+skinparam sequence {
+	ArrowColor DeepSkyBlue
+	ActorBorderColor DeepSkyBlue
+	LifeLineBackgroundColor #A9DDDD
+	
+	ParticipantBorderColor DeepSkyBlue
+	ParticipantBackgroundColor DodgerBlue
+	ParticipantFontName Impact
+	ParticipantFontSize 17
+}
+
+hide footbox
+title 取消预定 用例
+actor 读者 
+boundary 权限判断
+control 业务控制
+database 操作信息
+
+
+autonumber
+group 账号合法性验证
+activate 权限判断
+	读者 -> 权限判断 :  输入账号信息
+	activate 业务控制
+		权限判断 -> 业务控制 : 获取账号信息
+deactivate 权限判断
+		activate 操作信息
+			业务控制 -> 操作信息 : 比对账号密码合法性
+			操作信息 --> 业务控制 : 账号合法
+end
+group 取消预定
+			读者 -> 业务控制 : 输入想取消预定的图书信息
+			业务控制 -> 操作信息 : 删除图书预定信息
+			操作信息 -> 业务控制 : 返回操作结果
+		deactivate 操作信息
+	业务控制 -> 读者 : 返回预定取消结果
+	deactivate 业务控制
+	
+
+end
+
+@enduml
