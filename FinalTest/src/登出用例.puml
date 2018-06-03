@@ -1,0 +1,8 @@
+@startuml
+title 登出用例的顺序图
+actor 用户
+control 系统
+user -> 系统: 退出页面请求
+系统->user:成功，返回登录页面
+
+@enduml

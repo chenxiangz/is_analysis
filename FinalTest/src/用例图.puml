@@ -1,0 +1,70 @@
+@startuml
+
+skinparam usecase {
+
+
+
+
+
+	ArrowColor Olive
+	ActorFontName Courier
+
+	ActorBackgroundColor<< Human >> Gold
+}
+
+left to right direction
+title 用例图
+
+actor 教师
+
+actor 学生
+
+actor 用户
+
+用户 <|-- 教师
+
+用户 <|-up- admin
+
+用户 <|-- 学生
+
+
+package 用户用例集 {
+用户 -left-> (登录)
+
+用户 -left-> (登出)
+
+用户 -left-> (查看用户信息)
+
+
+
+用户 -left-> (修改密码)
+
+}
+
+
+
+
+package 管理员用例集{
+
+admin --> (添加学生信息)
+admin --> (添加教师信息)
+admin --> (添加班级信息)
+admin --> (添加课程信息)
+
+}
+package 普通用户用例集 {
+
+
+教师 --> (成绩管理)
+教师 --> (打印成绩)
+教师 --> (课程列表)
+教师 --> (学生列表)
+
+学生 --> (课程列表)
+学生 --> (选择学期)
+学生 --> (学生列表)
+学生 --> (查看成绩)
+
+}
+
+@enduml

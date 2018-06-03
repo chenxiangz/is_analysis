@@ -1,0 +1,122 @@
+@startuml
+title 类图
+
+abstract class users {
+
+    <b>user_id</b> （用户ID）
+
+    name （用户真实姓名）
+
+    password （用户密码）
+
+
+}
+
+class teachers{
+
+    <b>teacher_id</b> （教师工号）
+
+   teacher_name (教师姓名)
+
+}
+
+class students{
+
+    <b>student_id</b> （学号）
+
+    set_githubname （GitHub账号）
+
+    class_date （GitHub账号修改日期）
+
+    class_id （所属班级id）
+
+}
+
+class admin{
+
+      <b>admin_id</b> （管理员ID）
+
+      power （权限级别）
+
+}
+
+class class{
+
+    <b>class_id</b> （班级id）
+
+    name（班级名称）
+
+    major （专业）
+
+}
+
+
+class courses{
+
+    <b>course_id</b>（课程编号）
+
+    course_name（课程名称）
+
+    course_dis（课程简介）
+
+}
+
+class terms{
+
+    <b>term_id</b>（学期编号）
+
+    term-year（学年）
+
+}
+
+class tests {
+
+    <b>test_id</b> （实验编号）
+
+    title （实验名称）
+
+    desc （实验内容简介）
+
+
+}
+
+class grades {
+
+    <b>student_id</b> （学号）
+
+    <b>test_id</b> （实验编号）
+
+    grades （分数）
+
+    evoluate （评价）
+
+    test_date （评改日期）
+
+}
+
+users <|- students
+
+users <|-- teachers
+
+users <|-- admin
+
+
+students "n" -- "1"  class
+
+students "1" -- "n"  courses
+
+teachers "n" -- "n"  courses
+
+teachers "n" -- "n"  tests
+
+courses  "1" -- "1"  tests
+
+courses "n" - "n"  terms
+
+
+students "1" -- "n"  grades
+
+tests "1" - "1"  grades
+
+
+@enduml

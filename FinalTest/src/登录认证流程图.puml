@@ -1,0 +1,23 @@
+@startuml
+
+title 登录认证流程图
+
+database cookies
+actor 系统
+actor 登录页面
+actor API服务
+database 数据库存储
+
+autonumber
+系统->数据库存储:用过用户注册保存设置过后的账号和密码，数据库存储起来。
+系统->API服务:在服务程序启动时，生成公钥和私钥
+登录页面->API服务:点击页面事件：用户输入网址链接，生成公钥
+API服务->登录页面:API响应后返回公钥
+登录页面->登录页面:用户输入自己注册账号和密码，点击登录
+登录页面->API服务:用户输入的账号和密码发送至API服务
+API服务->数据库存储:API通过用户传递的参数，去数据库中寻找
+数据库存储->API服务:返回该用户的hash密码
+API服务->cookies:调用login_user(),\n将用户的ID值写到Cookies['session']中\n并设置失效时间
+API服务->登录页面:返回成功信息
+
+@enduml
