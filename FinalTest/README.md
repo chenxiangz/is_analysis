@@ -23,7 +23,7 @@
 
 2 系统结构图
 -------
- ![系统结构图](系统结构图.png)
+ ![](./系统结构图.png)
 
  [界面设计](https://chenxiangz.github.io/is_analysis/FinalTest/ui/login_html.html)
 3.用例设计图 [源码](./src/用例图)
