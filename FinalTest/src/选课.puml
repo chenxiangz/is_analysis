@@ -1,0 +1,8 @@
+@startuml
+title 选择学期用例的顺序图
+actor 用户
+control 数据库
+用户 -> 数据库:课程
+数据库->用户:课程集
+
+@enduml

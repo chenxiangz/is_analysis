@@ -1,0 +1,7 @@
+@startuml
+title 选择学期用例的顺序图
+actor admin
+control 数据库
+admin -> 数据库:添加课程
+数据库 -> 数据库:保存
+@enduml

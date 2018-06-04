@@ -397,10 +397,10 @@
   position:absolute;
   left:0px;
   top:0px;
-  width:300px;
-  height:60px;
+  width:182px;
+  height:27px;
   background:inherit;
-  background-color:rgba(255, 255, 255, 1);
+  background-color:rgba(25, 158, 216, 1);
   box-sizing:border-box;
   border-width:1px;
   border-style:solid;
@@ -415,15 +415,15 @@
   position:absolute;
   left:211px;
   top:458px;
-  width:300px;
-  height:60px;
+  width:182px;
+  height:27px;
 }
 #u33_text {
   border-width:0px;
   position:absolute;
   left:2px;
-  top:22px;
-  width:296px;
+  top:6px;
+  width:178px;
   word-wrap:break-word;
 }
 #u34 {
