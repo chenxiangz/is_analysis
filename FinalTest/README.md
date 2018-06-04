@@ -25,7 +25,8 @@
 -------
  ![](./系统结构图.png)
 
- [界面设计](https://chenxiangz.github.io/is_analysis/FinalTest/ui/login_html.html)
+ [界面设计](https://chenxiangz.github.io/is_analysis/FinalTest/ui/用户首页.html)
+
 3.用例设计图 [源码](./src/用例图.puml)
 -----------------------
 ###### 基于Github的实验管理平台--用例图
